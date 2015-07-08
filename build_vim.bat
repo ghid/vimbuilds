@@ -6,7 +6,7 @@ REM --- Specify Vim /src folder ---
 REM set VIMSRC=E:\devel\vim_sources\vim-7-4-050\src
 set VIMSRC=D:\work\vim\src
 REM --- Add MinGW /bin directory to PATH ---
-REM PATH = D:\MinGW\bin;%PATH%
+PATH = D:\opt\MinGW\bin;%PATH%
 REM --- Also make sure that PYTHON, PYTHON_VER below are correct. ---
 
 REM get location of this batch file
@@ -22,7 +22,7 @@ cd /d %VIMSRC%
 REM --- Build GUI version (gvim.exe) ---
 echo Building gvim.exe ...
 REM The following command will compile with both Python 2.7 and Python 3.3
-REM mingw32-make.exe -f Make_ming.mak PYTHON="C:/Python27" PYTHON_VER=27 DYNAMIC_PYTHON=yes PYTHON3="C:/Python33" PYTHON3_VER=33 DYNAMIC_PYTHON3=yes FEATURES=HUGE GUI=yes gvim.exe > "%LOGFILE%"
+REM mingw32-make.exe -m32 -f Make_ming.mak PYTHON="C:/Python27" PYTHON_VER=27 DYNAMIC_PYTHON=yes PYTHON3="C:/Python33" PYTHON3_VER=33 DYNAMIC_PYTHON3=yes FEATURES=HUGE GUI=yes gvim.exe > "%LOGFILE%"
 mingw32-make.exe -f Make_ming.mak PYTHON="D:/Python27" PYTHON_VER=27 DYNAMIC_PYTHON=yes FEATURES=HUGE GUI=yes gvim.exe > "%LOGFILE%"
 
 REM --- Build console version (vim.exe) ---
